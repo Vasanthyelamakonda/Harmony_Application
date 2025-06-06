@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+li{
+align:center;
+}
+      a{
+      text-decoration:none;
+      }
+
+    body{
+    background-color:whitesmoke;
+    }
+      h1{
+      color: Red;
+      }
+      h2{
+      font-size: xx-large;
+      }
+    </style>
+</head>
+<body><center>
+    <div>
+<h1 >Harmony<span class="drop">&#129309;</span></h1>
+
+</div>
+    <div>
+<nav>
+  <fieldset>
+   <h3> <a href="{% url 'userwelcome' %}">Home</a>  &emsp; &emsp; &emsp;
+     <a href="{% url 'userupdate' %}">Update</a> &emsp; &emsp; &emsp;
+    <a href="{% url 'usersearch' %}">Search</a> &emsp; &emsp; &emsp;
+        <a href="{% url 'logout' %}">Logout</a> &emsp; &emsp; &emsp;
+     </h3>
+    </fieldset>
+  </nav>
+        </div>
+
+    <div>
+
+        <h3>#Together for a Healthier Community <span style="color:red;">&#10084;</span></h3>
+      <br><br><br><br>
+        <table rules="all" border="2px" cellpadding="15" cellspacing="10">
+            <tr>
+
+                <th></th>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Blood Group</th>
+                <th>Phone Number</th>
+                <th>Email ID</th>
+                <th>City</th>
+            </tr>
+            {% for i in res %}
+            <tr>
+
+                <td><a href="#">Edit</a> </td>
+                <td>{{i.user_id}}</td>
+                <td>{{i.user_name}}</td>
+                <td>{{i.blood_group}}</td>
+                <td>{{i.phone_number}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.city}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </center>
+
+</body>
+</html>

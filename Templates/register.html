@@ -1,0 +1,105 @@
+{% include 'home.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+</head>
+<body><center>
+    <div>
+
+        <h3>#Register for a Healthier Community <span style="color:red;">&#10084;</span></h3>
+        <h3 style="color:blue;">{{ msg }}</h3>
+<form method="post" >
+    {% csrf_token %}
+    <table cellpadding="1" cellspacing="8">
+      <tr>
+        <th>Username </th>
+        <th>:</th>
+        <td><input type="text" name="uname" required></td>
+      </tr>
+      <tr>
+        <th>Password</th>
+        <th>:</th>
+        <td><input type="password" name="pwd" required></td>
+      </tr>
+       <tr>
+        <th>Confirm Password</th>
+        <th>:</th>
+        <td><input type="password" name="cpwd" required></td>
+      </tr>
+      <tr>
+        <th>Gender</th>
+        <th>:</th>
+        <td><input type="radio" name="gender" value="M">Male
+        <input type="radio" name="gender" value="F">Female</td>
+      </tr>
+      <tr>
+        <th>Languages</th>
+        <th>:</th>
+      <td>
+        <input type="checkbox" name="languages" value="Telugu"> Telugu
+        <input type="checkbox" name="languages" value="English"> English
+        <input type="checkbox" name="languages" value="Hindi"> Hindi
+    </td>
+      </tr>
+     <tr>
+                    <th>State</th>
+                    <th>:</th>
+                    <td>
+                            <select name="state" required>
+                                <option disabled selected>Select State</option>
+                                   {% for i in res1 %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                    {% endfor %}
+                            </select>
+                        </td>
+                </tr>
+      <tr>
+                    <th>City</th>
+                    <th>:</th>
+                    <td>
+                            <select name="city" required>
+                                <option disabled selected>Select City</option>
+{% for j in res2 %}
+                                    <option value="{{ j }}">{{ j }}</option>
+{% endfor %}
+                            </select>
+                        </td>
+                </tr>
+      <tr>
+                    <th>Blood Group</th>
+                    <th>:</th>
+                    <td>
+                            <select name="bloodgroup" required>
+                                <option disabled selected>Select Blood Group</option>
+                                {% for k in res3 %}
+                                    <option value="{{ k }}">{{ k }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                </tr>
+      <tr>
+        <th>Phone No</th>
+        <th>:</th>
+        <td><input type="text" name="phno" required></td>
+      </tr>
+      <tr>
+        <th>Email ID</th>
+        <th>:</th>
+        <td><input type="email" name="email" required></td>
+      </tr>
+      <tr>
+        <th></th>
+        <th></th>
+        <td><input type="submit" value="Register"> &emsp;<input type="reset" value="Clear"></td>
+      </tr>
+    </table>
+  </form>
+        </div>
+    </center>
+
+</body>
+</html>

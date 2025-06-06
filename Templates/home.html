@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+li{
+align:center;
+}
+      a{
+      text-decoration:none;
+      }
+
+    body{
+    background-color:whitesmoke;
+    }
+      h1{
+      color: Red;
+      }
+      h2{
+      font-size: xx-large;
+      }
+    </style>
+</head>
+<body><center>
+    <div>
+<h1 >Harmony<span class="drop">&#129309;</span></h1>
+
+</div>
+    <div>
+<nav>
+  <fieldset>
+    <h3> <a href="{% url 'home' %}">Home</a>  &emsp; &emsp; &emsp;
+     <a href="{% url 'register' %}">Register</a> &emsp; &emsp; &emsp;
+    <a href="{% url 'adminlogin' %}">Admin Login</a> &emsp; &emsp; &emsp;
+     <a href="{% url 'userlogin' %}">User Login</a> &emsp; &emsp; &emsp;
+     <a href="{% url 'about' %}">About Us</a> &emsp; &emsp; &emsp;
+    <a href="{% url 'contact' %}">Contact Us</a> &emsp; &emsp; &emsp; </h3>
+    </fieldset>
+  </nav>
+        </div>
+
+    </center>
+
+</body>
+</html>

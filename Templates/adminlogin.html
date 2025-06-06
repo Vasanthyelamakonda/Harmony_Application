@@ -1,0 +1,41 @@
+{% load static %}
+{% include 'home.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+
+</head>
+<body><center>
+
+    <div>
+
+        <h3>Admin login <span style="color:red;">&#10084;</span></h3>
+        <h3 style="color:red">{{ error }}</h3>
+          <form method="post">
+        {% csrf_token %}
+        <table cellspacing="8" cellpadding="2">
+            <tr>
+                <th>Username</th>
+                <th>:</th>
+                <td><input type="text" name="uname" required></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <th>:</th>
+                <td><input type="password" name="pwd" required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+
+        </table>
+    </form>
+        </div>
+    </center>
+
+</body>
+</html>

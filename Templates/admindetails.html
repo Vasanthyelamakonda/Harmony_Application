@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+li{
+align:center;
+}
+      a{
+      text-decoration:none;
+      }
+
+    body{
+    background-color:whitesmoke;
+    }
+      h1{
+      color: Red;
+      }
+      h2{
+      font-size: xx-large;
+      }
+    </style>
+</head>
+<body><center>
+    <div>
+<h1 >Harmony<span class="drop">&#129309;</span></h1>
+
+</div>
+    <div>
+<nav>
+  <fieldset>
+    <h3> <a href="{% url 'welcome' %}">Home</a>  &emsp; &emsp; &emsp;
+     <a href="{% url 'admindetails' %}">Details</a> &emsp; &emsp; &emsp;
+    <a href="{% url 'adminsearch' %}">Search</a> &emsp; &emsp; &emsp;
+        <a href="{% url 'home' %}">Logout</a> &emsp; &emsp; &emsp;
+     </h3>
+    </fieldset>
+  </nav>
+        </div>
+    <div>
+
+        <h4>#Together for a Healthier Community <span style="color:red;">&#10084;</span></h4>
+
+        <table rules="all" border="2px" cellpadding="15" cellspacing="10">
+            <tr>
+                <th></th>
+                <th></th>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Blood Group</th>
+                <th>Phone Number</th>
+                <th>Email ID</th>
+                <th>City</th>
+            </tr>
+            {% for i in res %}
+            <tr>
+                <td><a href="{% url 'deleterecord' i.user_id %}">Delete</a> </td>
+                <td><a href="{% url 'updaterecord' i.user_id  %}">Update</a> </td>
+                <td>{{i.user_id}}</td>
+                <td>{{i.user_name}}</td>
+                <td>{{i.blood_group}}</td>
+                <td>{{i.phone_number}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.city}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </center>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+li{
+align:center;
+}
+      a{
+      text-decoration:none;
+      }
+
+    body{
+    background-color:whitesmoke;
+    }
+      h1{
+      color: Red;
+      }
+      h2{
+      font-size: xx-large;
+      }
+    </style>
+</head>
+<body><center>
+    <div>
+<h1>Harmony<span class="drop">&#129309;</span></h1>
+
+</div>
+    <div>
+<nav>
+  <fieldset>
+    <h3> <a href="{% url 'userwelcome' %}">Home</a>  &emsp; &emsp; &emsp;
+     <a href="{% url 'userupdate' %}">Update</a> &emsp; &emsp; &emsp;
+    <a href="{% url 'usersearch' %}">Search</a> &emsp; &emsp; &emsp;
+        <a href="{% url 'logout' %}">Logout</a> &emsp; &emsp; &emsp;
+     </h3>
+    </fieldset>
+  </nav>
+        </div>
+
+
+    <div>
+
+        <h2 style="padding:10%;">Together for a Healthier Community <span style="color:red;">&#10084;</span></h2>
+
+        </div>
+    </center>
+
+</body>
+</html>

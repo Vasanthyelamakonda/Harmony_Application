@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <style>
+li{
+align:center;
+}
+      a{
+      text-decoration:none;
+      }
+
+    body{
+    background-color:whitesmoke;
+    }
+      h1{
+      color: Red;
+      }
+      h2{
+      font-size: xx-large;
+      }
+    </style>
+</head>
+<body><center>
+    <div>
+<h1>Harmony<span class="drop">&#129309;</span></h1>
+
+</div>
+    <div>
+<nav>
+  <fieldset>
+    <h3> <a href="{% url 'userwelcome' %}">Home</a>  &emsp; &emsp; &emsp;
+     <a href="{% url 'userupdate' %}">Update</a> &emsp; &emsp; &emsp;
+    <a href="{% url 'usersearch' %}">Search</a> &emsp; &emsp; &emsp;
+        <a href="{% url 'logout' %}">Logout</a> &emsp; &emsp; &emsp;
+     </h3>
+    </fieldset>
+  </nav>
+        </div>
+    <div>
+
+      <h3>Fetch Details</h3>
+        <h2>{{ error }}</h2>
+ <form method="post" action="">
+            {% csrf_token %}
+            <table cellspacing="8" cellpadding="2">
+                <tr>
+                    <th>Blood Group</th>
+                    <th>:</th>
+                    <td>
+                            <select name="bloodgroup" required>
+                                <option disabled selected>Select Blood Group</option>
+                                {% for i in res3 %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <th>:</th>
+                    <td>
+                            <select name="state" required>
+                                <option  disabled selected>Select State</option>
+                                {% for j in res1 %}
+                                    <option value="{{ j }}">{{ j }}</option>
+                            {% endfor %}
+                            </select>
+                        </td>
+                </tr>
+
+                 <tr>
+                    <th>City</th>
+                    <th>:</th>
+                   <td>
+                            <select name="city" required>
+                                <option  disabled selected>Select City</option>
+                                {% for k in res2 %}
+                                    <option value="{{ k }}">{{ k }}</option>
+                            {% endfor %}
+                            </select>
+                        </td>
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <td><input type="submit" value="Search"></td>
+                </tr>
+            </table>
+        </form>
+
+                <table rules="all" border="2" cellpadding="15" cellspacing="5">
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Blood Group</th>
+                        <th>Email ID</th>
+                        <th>City</th>
+                    </tr>
+{% for i in details %}
+                        <tr>
+                            <td>{{ i.user_id }}</td>
+                            <td>{{ i.user_name }}</td>
+                            <td>{{ i.blood_group }}</td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.city }}</td>
+                        </tr>
+{% endfor %}
+                </table>
+
+        </div>
+    </center>
+
+</body>
+</html>

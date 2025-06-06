@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <style>
+li{
+align:center;
+}
+      a{
+      text-decoration:none;
+      }
+
+    body{
+    background-color:whitesmoke;
+    }
+      h1{
+      color: Red;
+      }
+      h2{
+      font-size: xx-large;
+      }
+    </style>
+</head>
+<body><center>
+    <div>
+<h1>Harmony<span class="drop">&#129309;</span></h1>
+
+</div>
+    <div>
+<nav>
+  <fieldset>
+    <h3> <a href="{% url 'welcome' %}">Home</a>  &emsp; &emsp; &emsp;
+     <a href="{% url 'admindetails' %}">Details</a> &emsp; &emsp; &emsp;
+    <a href="{% url 'adminsearch' %}">Search</a> &emsp; &emsp; &emsp;
+        <a href="{% url 'home' %}">Logout</a> &emsp; &emsp; &emsp;
+     </h3>
+    </fieldset>
+  </nav>
+        </div>
+    <div>
+
+      <h3>Fetch User-Details</h3>
+        <h2>{{ error }}</h2>
+ <form method="post" action="{% url 'admindetails' %}">
+            {% csrf_token %}
+<table cellspacing="2" cellpadding="6">
+    <tr>
+        <th>User ID</th>
+        <th>:</th>
+        <th><input type="text" name="user_id" value="{{ user.user_id }}"></th>
+    </tr>
+    <tr>
+        <th>Username</th>
+        <th>:</th>
+        <th><input type="text" name="uname" value="{{ user.user_name }}"></th>
+    </tr>
+    <tr>
+        <th>Blood Group</th>
+        <th>:</th>
+        <th><input type="text" name="bloodgroup" value="{{ user.blood_group }}"></th>
+    </tr>
+    <tr>
+        <th>Phone Number</th>
+        <th>:</th>
+        <th><input type="text" name="phno" value="{{ user.phone_number }}"> </th>
+
+    </tr>
+    <tr>
+        <th>Email ID</th>
+        <th>:</th>
+        <th><input type="text" name="email" value="{{ user.email }}"></th>
+    </tr>
+    <tr>
+        <th>City</th>
+        <th>:</th>
+        <th><input type="text" name="city" value="{{ user.city }}"></th>
+    </tr>
+    <tr>
+        <th></th>
+        <th></th>
+        <th><input type="submit" value="Update"></th>
+    </tr>
+</table>
+
+
+        </form>
+
+
+        </div>
+    </center>
+
+</body>
+</html>
